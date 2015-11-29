@@ -1,0 +1,33 @@
+https://highlyscalable.wordpress.com/2015/03/10/data-mining-problems-in-retail/
+
+Particle Swarm Optimization Algorithm and Support Vector Regression
+A Novel Trigger Model for Sales Prediction with Data Mining Techniques
+http://datascience.codata.org/articles/10.5334/dsj-2015-015/galley/576/download/
+
+ Microsoft Time Series Algorithm
+https://msdn.microsoft.com/en-GB/library/ms174923.aspx
+
+http://www.academia.edu/8092543/TIME_SERIES_DATA_PREDICTION_ON_SHOPPING_MALL
+
+Sales Forecasting for Fashion Retailing Service Industry: A Review
+http://www.hindawi.com/journals/mpe/2013/738675/
+
+Spatial data mining for retail sales forecasting
+http://www.agile-online.org/Conference_Paper/CDs/agile_2008/PDF/118_DOC.pdf
+Intelligent Sales Prediction for Pharmaceutical Distribution Companies: A Data Mining Based Approach
+http://www.hindawi.com/journals/mpe/2014/420310/
+
+Applying Data Mining to Demand Forecasting and Product Allocations
+https://turing.cs.hbg.psu.edu/mspapers/sources/bhavin-parikh.pdf
+
+The Research of Data Mining Based Sales  Y Geng
+
+
+
+
+Multiple Linear Regression in Data Mining
+http://ocw.mit.edu/courses/sloan-school-of-management/15-062-data-mining-spring-2003/lecture-notes/lecture9.pdf
+Retail Forecasting using Neural Network and Data Mining Technique: A Review and Reflection
+http://www.ijettcs.org/Volume2Issue6/IJETTCS-2013-12-25-094.pdf
+
+

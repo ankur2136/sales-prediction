@@ -1,0 +1,75 @@
+1) Data Mining Problems In Retail
+ https://highlyscalable.wordpress.com/2015/03/10/data-mining-problems-in-retail/
+Retail is one of the most important business domains for data science and data mining applications because of its prolific data and numerous optimization problems such as optimal prices, discounts, recommendations, and stock levels that can be solved using data analysis methods. 
+Fast data circulation in modern retail enables retailers to make accurate forecasts using relatively simple models because small incremental predictions are generally simpler than big decisions. For instance, it might be difficult to calculate the optimal price for a new disruptive product because its perceived value is not known, but it can be relatively easy to automatically adjust promotion prices in real time depending on demand and inventory levels. Some commercially successful solutions for price optimization discard most of economic modeling simply moving prices up and down depending on closed loop feedback from point of sales
+Challenges in Retail and Sales Prediction - 
+Problem 1 : Response Modeling
+Problem 2 : Recommendations
+Problem 3 : Demand Prediction
+Problem 4 : Price Discrimination
+Problem 5 : Sales Event Planning
+Problem 6 : Category Management
+
+2)  A Novel Trigger Model for Sales Prediction with Data Mining Techniques
+http://datascience.codata.org/articles/10.5334/dsj-2015-015/galley/576/download/
+
+ Previous research on sales prediction has always used a single prediction model. However, no sin¬gle model can perform the best for all kinds of merchandise. Accurate prediction results for just one commodity are meaningless to sellers. A general prediction for all commodities is needed.
+Basic Prediction Models – 
+a)	The Artificial Neural Network is a mathematical model which imitates the distributed parallel information processing animal behavior characteristic of neural networks. It is widely used in the prediction field. The BPNN, created by MATLAB, is a feed forward neural network. 
+b)	The Generalized AutoRegressive Conditional Heteroskedasticity (GARCH) model is a regression model spe¬cifically for financial data. It makes a further model for error variance, which is especially suitable for the analysis and forecast of volatility. 
+c)	The Extreme Learning Machine (ELM) is an algorithm of NN, which is a generalized single-hidden layer feed forward network. It performs faster than any other model. Besides regression, it can also be used as a classification model. Thus, we use ELM not only as a basic prediction model but also as the classification model for our trigger system.
+
+Empirical Analysis 
+a)  Data Description
+b) Experimental Results
+
+3)  Microsoft Time Series Algorithm
+https://msdn.microsoft.com/en-GB/library/ms174923.aspx
+The Microsoft Time Series algorithm provides regression algorithms that are optimized for the forecasting of continuous values, such as product sales, over time. Whereas other Microsoft algorithms, such as decision trees, require additional columns of new information as input to predict a trend, a time series model does not. A time series model can predict trends based only on the original dataset that is used to create the model. You can also add new data to the model when you make a prediction and automatically incorporate the new data in the trend analysis.
+An important feature of the Microsoft Time Series algorithm is that it can perform cross prediction. If you train the algorithm with two separate, but related, series, you can use the resulting model to predict the outcome of one series based on the behavior of the other series. For example, the observed sales of one product can influence the forecasted sales of another product.
+How it Works:
+In SQL Server 2005, the Microsoft Time Series algorithm used a single algorithm, ARTXP. The ARTXP algorithm was optimized for short-term predictions, and therefore, predicted the next likely value in a series.
+4) TIME SERIES DATA PREDICTION ON SHOPPING MALL (Reference Paper)
+http://www.academia.edu/8092543/TIME_SERIES_DATA_PREDICTION_ON_SHOPPING_MALL
+The values are generally measured at equal time stamps (e.g., hourly, daily, weekly) that are sequence of ordered events, with or while not concrete notations of time. The perform is to mine all the transactional information that describes the behaviour of assorted transactions. In a web business or during a shopping mall, the shoppers should purchase over one item at a time. Frequent patterns are people who seem most frequently during information set as a group of assorted item sets or its sub sequences.
+
+
+5) Sales Forecasting for Fashion Retailing Service Industry: A Review
+http://www.hindawi.com/journals/mpe/2013/738675/
+Traditionally, fashion sales forecasting is accomplished by the statistical methods. In fact, a lot of statistical methods have been used for sales forecasting, which include linear regression, moving average, weighted average, exponential smoothing (used when a trend is present but not linear), exponential smoothing with trend, double exponential smoothing, Bayesian analysis, and so forth.
+Despite being popularly used for their simplicity and fast speed, it is well known that the statistic methods suffer a few problems. First, the selection of the right statistical methods is an uneasy task. It requires an “expert” knowledge. Second, in terms of performance, they do not usually lead to very promising results. In particular, compared to the more sophisticated methods such as AI methods, statistical models’ performance is usually worse. Third, fashion sales are affected by multiple factors such as the fashion trends and seasonality and exhibit a highly irregular pattern [9], which implies that the pure statistical methods may fail to achieve a desirable forecasting outcome.
+Hybrid Methods for Fashion Sales Forecasting – 
+Hybrid Methods for Fashion Sales Forecasting
+ - Fuzzy Logic Based Hybrid Methods
+ - Neural Network Based Hybrid Methods
+ - ELM Based Hybrid Methods
+ 
+ Conclusions - 
+ Finally, we conclude this paper with the discussions of a few future research directions below.
+(a)	For fashion retail sales forecasting, regarding the data source, there are three kinds of data, namely, the time series data, cross-section data, and panel data. The time series data, which is collected over discrete intervals of time, is widely used in fashion forecasting and the methods applied to time-series data are also well developed. Cross-section data is collected over sample units in a particular time period and panel data follows individual microunits over time. These two kinds of data are not yet fully used for fashion sales forecasting. Recently, a forecasting method using the panel data is developed in [54] and it will be an interesting future research direction to explore the use of these different types of data for fashion sales forecasting.
+(b)	Color is one critical element in fashion and it is highly related to the inventory and production planning of fashion apparel products. However, from the reviewed literature, only very few prior studies have examined color forecasting (such as [44, 50–52, 65]). Thus, more studies on this topic can be conducted. In addition, on a related area, no prior study has examined how fashion pattern design and other design factors affect demand and the respective sales forecasting mechanism. It is another interesting topic for further studies.
+(c)	In fashion retail system, the sales of the apparel product are strongly influenced by the calendar factor, for example, holiday. It can be observed easily that the sales in National day’s holidays in Hong Kong and Black Friday holidays in the USA will go up very quickly and highly. On one hand, the demands on these specific dates are much more volatile and difficult to predict. On the other hand, the revenue that can be generated during these periods of time can be huge. As a consequence, how to precisely forecast the demand during special dates/events becomes crucial to fashion retailors. This becomes another topic open for future research.
+
+6) Spatial data mining for retail sales forecasting
+http://www.agile-online.org/Conference_Paper/CDs/agile_2008/PDF/118_DOC.pdf
+This paper presents a use case of spatial data mining for aggregate sales forecasting in retail location planning. In particular, the data mining technique Support Vector Regression (SVR) is used to design a regression model to predict probable turnovers for potential outlet-sites of a big European food retailing company. The forecast of potential sites is based on sales data on shop level for existing stores and a broad variety of spatially aggregated geographical, socio-demographical and economical features describing the trading area and competitor characteristics. The model building process was guided by a-priori expert knowledge and by analytic knowledge which was discovered during the data mining process itself. To assess the performance of this SVR-model, it is tested against the traditional state-of-the-art gravitational Huff-model. Findings not only reveal that the spatial data mining model highly outperforms the traditional modeling approach with regard to prediction accuracy, but also that knowledge which is hidden in data and became discovered by the data mining process is of particular importance for constructing a valid and precise prediction model.
+The goal in supervised learning is to choose a function from the hypothesis space which predicts a target attribute most accurately with regard to some defined error measure. The target space of this function can either be nominal – as in the case of classification - or ratio scaled. SV algorithms are specially designed to minimize the expected classification error by minimizing both the empirical error and some measure of complexity. SVR uses more or less the same principles as the Support Vector Classification
+The SV-approach searches for the linear classifier which separates the positive from the negative instances of the training set by maximising the margins. The margin is the distance between the separating line and the nearest data points (the Support Vectors). This linear classifier is called the Optimal Separating Hyperplane. The hyperplane H can be described by the orthogonal vector w and the offset b, such that H = {x|wx+b = 0}. However, in many practical cases, the instances are not linearly separable (like shown for the two-dimensional case on the left side of figure 2). In that case kernel functions can be used. The idea behind the kernel is to transform the input space containing the training instances into a new, higher-dimensional feature space, in which it becomes possible to separate the data.
+To solve such a regression problem, the SV approach can be adapted, when instead of the classification error a suitable regression error is used. Again, the goal is to minimize the error and maximize the margin, which now corresponds to the task of finding the smoothest function that matches the data with an error of at most ε. A soft margin determines a penalty when the predicted value differs from the actual value more than the quantity ε.
+Geo / Social Factors – 
+-	Car accessibility 
+-	- Sales area and location type 
+-	- Competition (number, predicted sales and absorption of buying power) 
+-	- Cannibalisation 
+-	- Shopping linkage behaviour 
+-	- Customer structure (Proportion of transient and regular customers) 
+-	- Customer-related socio-demographic attributes as described above 
+-	- Derived geographical attributes (population density, centrality, geographic coordinates, tourism potential)
+
+
+
+7) Applying Data Mining to Demand Forecasting and Product Allocations
+https://turing.cs.hbg.psu.edu/mspapers/sources/bhavin-parikh.pdf
+Thesis Paper for reference
+
+
