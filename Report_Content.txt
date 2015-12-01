@@ -1,0 +1,138 @@
+---------------------------------------------------------------------------
+Missing Data:
+There are 180 stores missing 184 days of data in the middle of the series between 1 July 2014 to 31 Dec 2014 
+https://www.kaggle.com/c/rossmann-store-sales/forums/t/17048/putting-stores-on-the-map/96627#post96627
+
+-------------------------------------------------------
+Data Analysis
+
+Google Trends
+Using Google Trends makes it easy to visualize the data and draw conclusions from it. It helps by giving information on external conditions which explain certain outliers in the training data. For example analyzing Weather data gives a good idea (heavy snowfall) on why certain stores in a geographical area had lower sales at certain weeks of the year. It also indicated that Pre-holiday sales are higher in stores as opposed to sales on a normal day. This could be due to promo offers being run during the holiday period. Also state holidays vary by date from state to state
+
+In addition data was looked into for the following Geographical and Social Factors - 
+-	Accessibility 
+-	Store Location 
+-	Store Competition 
+-	Population Density
+
+https://www.kaggle.com/ercfermi/rossmann-store-sales/exploratory-analysis-rossmann
+--------------------------------------------------------------------------------------------
+Sample Results:
+
+* Here is my code and what I did to engineer features. Performance score using xgboost (max.depth = 10, nround=250,eta=0.05,subsample = 0.5,lambda=0.001, objective= "reg:linear") was 0.116. While engineering features, I have also use 'customers' data available in the training set but not available in the test set.
+* ARIMA model so far is 0.118
+* I achieved ~0.14 on the LB using sklearn rf and basic feature extraction. 
+* 0.13198, RandomForestRegressor(n_estimators = 20, max_features = 'sqrt', max_depth = None)
+
+-------------------------------------------------------------------------------
+Variable Importances:
+                    variable relative_importance scaled_importance percentage
+1                      Store     11101946.000000          1.000000   0.722847
+2                      Promo      1639790.750000          0.147703   0.106767
+3                  DayOfWeek       713757.875000          0.064291   0.046473
+4                      month       375840.531250          0.033854   0.024471
+5  CompetitionOpenSinceMonth       270933.468750          0.024404   0.017640
+6   CompetitionOpenSinceYear       237843.515625          0.021424   0.015486
+7                  StoreType       195947.984375          0.017650   0.012758
+8        CompetitionStrength       181692.234375          0.016366   0.011830
+9            Promo2SinceWeek       151932.953125          0.013685   0.009892
+10                Assortment       121404.148438          0.010935   0.007905
+11                      year       117898.539062          0.010620   0.007676
+12           Promo2SinceYear       114260.554688          0.010292   0.007440
+13             SchoolHoliday        62071.664062          0.005591   0.004041
+14                    Promo2        34230.789062          0.003083   0.002229
+15               SundayStore        27033.765625          0.002435   0.001760
+16              StateHoliday        12047.477539          0.001085   0.000784
+
+https://www.kaggle.com/jettyy/rossmann-store-sales/modelchecking/log
+-----------------------------------------------------------------
+XGBoost
+Extreme Gradient Boosting
+While looking at better techniques for data analysis and forecasting online, we came across XGBoost which gives much better performance results than Linear Regression or Random Forest Regression.
+XGBoost or Extreme Gradient Boosting is a library that is designed, and optimized for boosted (tree) algorithms. The library aims to provide a scalable, portable and accurate framework for large scale tree boosting. It is an improvement on the existing Gradient Boosting technique.
+
+Gradient Boosting:
+Gradient boosting is a machine learning technique for regression and classification problems, which produces a prediction model in the form of weak prediction models, typically decision trees. Boosting can be interpreted as an optimization algorithm on a suitable cost function. Like other boosting methods, gradient boosting combines weak learners into a single strong learner, in an iterative fashion.
+
+XGBoost is used for supervised learning problems, where we use the training data x to predict a target variable y. The regularization term controls the complexity of the model, which helps us to avoid overfitting. XGBoost is built on a Tree Ensemble model which is a set of classification and regression trees (CART).
+We classify the members of a family into different leaves, and assign them the score on corresponding leaf. The main difference between CART and decision trees is that in CART, a real score is associated with each of the leaves in addition to the decision value.This gives us richer interpretations that go beyond classification. It consists of 3 steps - 
+Tree Boosting - 
+1) 	Additive Training 
+In this stage we define the parameters of trees which are those functions that contain information about the structure of the tree and the leaf score. This is optimized by using an additive strategy: fix what we have learned, add a new tree at a time. 
+2) Model Complexity
+The complexity of the tree acts as our regularization parameter and helps decide how to penalize certain cases.
+3)Structure Score
+This score is gives information on the best split conditions while taking the model complexity into account. The first split of a tree will have more impact on the purity and the following splits focus on smaller parts of the dataset which have been misclassified by the first tree.
+
+http://xgboost.readthedocs.org/en/latest/model.html
+http://homes.cs.washington.edu/~tqchen/pdf/BoostedTree.pdf
+-------------------------------------------------------------------------------------
+2. Identify a predictive task on this dataset
+ Predict the expected sales for a given store on any day ?
+ 
+ What model/s and tools from class will be appropriate for
+this task or suitable for comparison? Are there any other
+tools not covered in class that may be appropriate?
+
+Prediction Task - Supervised Learning
+Supervised learning is the machine learning task of inferring a function from labeled training data. The training data consist of a set of training examples. In supervised learning, each example is a pair consisting of an input object (typically a vector) and a desired output value (also called the supervisory signal).
+
+Linear Regression - many features available
+In Models, regression analysis is a statistical process for estimating the relationships among variables. It includes many techniques for modeling and analyzing several variables, when the focus is on the relationship between a dependent variable and one or more independent variables (or 'predictors').
+
+Random Forest Regression - decision based
+Random forests is a notion of the general technique of random decision forests[1][2] that are an ensemble learning method for classification, regression and other tasks, that operate by constructing a multitude of decision trees at training time and outputting the class that is the mode of the classes (classification) or mean prediction (regression) of the individual trees. Random decision forests correct for decision trees' habit of overfitting to their training set
+
+------------------------------------------------------------------------------------
+
+Other approaches - 
+1) Microsoft Time Series Algorithm
+The Microsoft Time Series algorithm provides regression algorithms that are optimized for the forecasting of continuous values over time. The major advantage of the Time Series Algorithm is that it does not require additional columns of new information as input to predict a trend whereas other algorithms based on  decision trees them. A time series model can predict trends based only on the original dataset that is used to create the model. Any new data added to the model when making a prediction is automatically incorporated into the trend analysis.
+Another unique feature of the Microsoft Time Series algorithm is that it can perform cross prediction. The algorithm can be trained with two separate, but related, series, and the resulting model created can predict the outcome of one series based on the behaviour of the other series. For example, the observed sales of one product can influence the forecasted sales of another product.
+How it Works:
+The Microsoft Time Series algorithm uses both methods, ARTXP (Autoregressive Tree Models with Cross Prediction) and ARIMA (Autoregressive Integrated Moving Average ), and blends the results to improve prediction accuracy. The ARTXP algorithm can be described as an autoregressive tree model for representing periodic time series data. The ARIMA algorithm improves long-term prediction capabilities of the Time Series algorithm.
+
+2) Spatial data mining for retail sales forecasting
+This paper presents a use case of spatial data mining for aggregate sales forecasting in retail location planning. Support Vector Regression (SVR) is the technique used to design a regression model to predict probable turnovers for potential outlet-sites of a big European food retailing company. The forecast of potential sites is based on sales data on shop level for existing stores and a broad variety of spatially aggregated geographical, socio-demographical and economical features describing the trading area and competitor characteristics. The model was built from a-priori expert knowledge and by analytic knowledge which was discovered during the data mining process. To assess the performance of this SVR-model, it was compared to the traditional state-of-the-art gravitational Huff-model. The spatial data mining model was found to outperform the traditional modelling approach with regard to prediction accuracy.
+Support Vector algorithms are specially designed to minimize the expected classification error by minimizing both the empirical error and complexity. SVR works on almost the same principles as the Support Vector Classification. The SV-approach searches for the linear classifier which separates the positive from the negative instances of the training set by maximising the margins. The margin is the distance between the separating line and the nearest data points (the Support Vectors). This linear classifier is called the Optimal Separating Hyperplane. Kernel functions are used to handle instances where the data points are not linearly separable which works by transforming the input space containing the training instances into a new, higher-dimensional feature space, in which it becomes possible to separate the data.
+
+
+3) A Novel Trigger Model for Sales Prediction with Data Mining Techniques
+This paper describes an approach which focuses on how to forecast sales with higher effectiveness and more accurate precision. The data used in this approach focuses on online shopping data in the Chinese B2C market. The paper delves into e-commerce and applies real sales data to several classical prediction models, aiming to discover a trigger model that could select the appropriate forecasting model to predict sales of a given product. The paper aims to effectively support an enterprise in making sales decisions in actual operations.
+The approach involves manipulating raw data into available forms and then a trigger model is proposed to do the classification. The classification result indicate the best prediction model for each item. Finally, by use of the most appropriate model, the prediction is accomplished. The features used are - 
+CV Sales (CVS): coefficient of variation for sales , CV Attention (CVA): coefficient of variation for attention , Sold Price Variation (SPV): the variation of sold price. This approach involves applying two typical forecasting models and several dimensions to the trigger model through training and testing the classification model with real sales data and focuses on the correlation of two subjects and ignores the causal relationship between them.
+
+------------------------------------------------
+Feature Description
+
+Store - Each store in the dataset has a unique ID associated with it
+Sales - The turnover for a store on a given day 
+Customers - the number of customers who visited the store on a given day
+Open - indicates whether the store was open(0) or closed(1)
+StateHoliday - indicates a state holiday.There are 4 classes -> a = public holiday, b = Easter holiday, c = Christmas, 0 = None
+SchoolHoliday - indicates if the was affected by the closure of public schools. These holidays vary from state to state.
+StoreType - differentiates between 4 different store models: a, b, c, d. Different kinds of stores sell different products
+Assortment - describes an assortment level: a = basic, b = extra, c = extended. Indicates the variety in items the store sells.
+CompetitionDistance - distance in meters to the nearest competitor store
+CompetitionOpenSince[Month/Year] - The year and month the nearest competitor was opened
+Promo - indicates whether a store is running a promo on that day : 1 indicates a promo, 0 indicates no promo
+Promo2 - a continuing and consecutive promotion for some stores: 1 = store is conducting the promo, 0 = store is not conducting the promo
+Promo2Since[Year/Week] - the year and week when the store started participating in Promo2
+PromoInterval - Promo2 runs during certain months of the year, this field indicates this event.
+DayOfWeek - Varies from Monday to Sunday. Most stores are closed on Saturday and Sunday. In the feature set it is expressed as 0000001 , 1000000 etc instead of 1-7 as the relation between day of the week and sales is non-linear
+------------------------------------------------------------------------
+
+Future Scope 
+Sales prediction plays a vital role in increasing the efficiency with which stores can operate as it provides details on the traffic a store can expect to receive on a given day. In addition to just predicting the expected sales, there are other data which can be mined to highlight important trends and also improve planning. Briefly they are - 
+1) Advertisement : Identifying which customers will react positively to certain ad's and offers to ensure they receive them. Conversely identifying customers who do not like certain offers will help reduce sending out unnecessary offers.
+2) Recommendations: Once the category of products a customer is interested in is identified, he can be recommended other products he may like thereby increasing sales.
+3) Predicting Demand : In addition to predicting sales, predicting the demand is another solution which would immensely benefit stores. Prior knowledge of what products will be in demand will help stores stock up on the right items. 
+4) Customer Based Pricing : This solution involves identifying the appropriate discounts for different items so as to maximize revenue. Identifying the right product will help generate profit as well as clear excess stock.
+5) Holiday / Extended Sale Planning : Involves identifying the best products to offer discounts or promos on during holidays by predicting demand. In addition finding out the best time period to offer discounts will benefit stores as well as the customers.
+6) Product Classification : Classifying products into a single category will help stores offer the best products to customers. Stores can avoid stocking up on redundant products as well as those that customers may not buy together.
+
+---------------------------------------------------------------------------
+
+Conclusion
+In this project we have performed sales forecasting for stores using different data mining techniques. The task involved predicting the sales on any given day at any store. In order to familiarize ourselves with the task we have studied previous work in the domain including Time Series Algorithm as well as a Spatial approach. A lot of analysis was performed on the data to identify patterns and outliers which would boost or impede the prediction algorithm. The features used ranged from store information to customer information as well as socio-geographical information. Data Mining methods like Linear Regression, Random Forest Regression and XGBoost were implemented and the results compared. XGBoost which is an improved gradient boosting algorithm was observed to perform the best at prediction. With efficiency being the way forward in most industries today, we aim to expand our solution to help stores improve productivity and increase revenue by taking advantage of Data Analysis.
+---------------------------------------------------------------------------
